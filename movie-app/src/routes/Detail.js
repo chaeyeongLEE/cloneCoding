@@ -1,6 +1,29 @@
 import {useEffect, useState} from "react";
-import { useParams } from "react-router-dom";
-import Movie from "../components/Movie";
+import {Link, useParams} from "react-router-dom";
+import {styled} from "styled-components";
+
+const Div = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: rosybrown;
+    padding: 0 0.5rem;
+    
+    & a {
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: 700;
+        background-color: rosybrown;
+        padding: 0.4rem;
+        border-radius: 0.5rem;
+
+        &:hover {
+            opacity: 0.7;
+            transition: ease-in 0.25s ;
+        }
+    }
+`;
+
 
 function Detail() {
     const { id } = useParams();
@@ -19,10 +42,16 @@ function Detail() {
     }, []);
 
     return <>
-        <h1>Detail</h1>
+        <Div>
+            <h2>Detail</h2>
+            <p>
+                <Link to="/">뒤로가기 🔙</Link>
+            </p>
+        </Div>
+
         {loading ? <h1>lodaing...</h1> :
-        <div>
-          <img src={movieInfo.movie.medium_cover_image} alt="moviePicture" />
+            <div>
+                <img src={movieInfo.movie.medium_cover_image} alt="moviePicture" />
             <hr />
           <h2>title : {movieInfo.movie.title}</h2>
           <span>{movieInfo.movie.genres.map((item)=> `장르: ${item}`)}</span>

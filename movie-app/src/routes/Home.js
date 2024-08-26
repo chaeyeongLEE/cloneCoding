@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import Movie from "../components/Movie";
-import Header from "../components/Header";
 import {styled} from "styled-components";
-
 
 const Span = styled.span`
         display: flex;
@@ -41,8 +39,6 @@ function Home() {
         getMovies();
     }, []);
     return (
-        <>
-            <Header/>
             <div>
                 {loading ? (
                     <h1>Loading...</h1>
@@ -64,8 +60,6 @@ function Home() {
                     </>
                 )}
             </div>
-        </>
-
     );
 }
 

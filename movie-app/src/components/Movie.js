@@ -2,8 +2,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import {styled} from "styled-components";
 
-function Movie({ id, coverImg, title, summary, genres }) {
-    const Div = styled.div`
+const Div = styled.div`
         padding: 1rem;
         border-radius: 0.5rem;
         border: 1px solid #7c7c7c;
@@ -31,6 +30,8 @@ function Movie({ id, coverImg, title, summary, genres }) {
             color: #a5a5a5;
         }
     `
+function Movie({ id, coverImg, title, summary, genres }) {
+
     return (
         <Div>
             <img src={coverImg} alt={title}/>
