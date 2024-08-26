@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
 import {Link, useParams} from "react-router-dom";
 import {styled} from "styled-components";
+import Loading from "../components/Loading";
 
 const Div = styled.div`
     display: flex;
@@ -12,14 +13,16 @@ const Div = styled.div`
     & a {
         color: #ffffff;
         text-decoration: none;
+        font-size: 0.85rem;
         font-weight: 700;
         background-color: rosybrown;
         padding: 0.4rem;
         border-radius: 0.5rem;
-
+        
         &:hover {
             opacity: 0.7;
             transition: ease-in 0.25s ;
+            cursor: pointer;
         }
     }
 `;
@@ -49,7 +52,7 @@ function Detail() {
             </p>
         </Div>
 
-        {loading ? <h1>lodaing...</h1> :
+        {loading ? <Loading /> :
             <div>
                 <img src={movieInfo.movie.medium_cover_image} alt="moviePicture" />
             <hr />

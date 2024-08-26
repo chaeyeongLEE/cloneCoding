@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Movie from "../components/Movie";
 import {styled} from "styled-components";
+import Loading from "../components/Loading";
 
 const Span = styled.span`
         display: flex;
@@ -41,7 +42,7 @@ function Home() {
     return (
             <div>
                 {loading ? (
-                    <h1>Loading...</h1>
+                    <Loading />
                 ) : (
                     <>
                         <Span>영화제목 클릭 시 상세정보 페이지로 이동합니다.</Span>
