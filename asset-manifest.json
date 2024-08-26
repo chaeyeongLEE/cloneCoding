@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/cloneCoding/static/js/main.66ce60f3.js",
+    "main.js": "/cloneCoding/static/js/main.06249fda.js",
     "index.html": "/cloneCoding/index.html",
-    "main.66ce60f3.js.map": "/cloneCoding/static/js/main.66ce60f3.js.map"
+    "main.06249fda.js.map": "/cloneCoding/static/js/main.06249fda.js.map"
   },
   "entrypoints": [
-    "static/js/main.66ce60f3.js"
+    "static/js/main.06249fda.js"
   ]
 }
