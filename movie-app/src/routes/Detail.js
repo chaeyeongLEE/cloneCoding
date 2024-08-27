@@ -49,7 +49,6 @@ function Detail() {
     const { id } = useParams();
     const [loading, setLoading] = useState(true);
     const [movieInfo, setMovieInfo] = useState([]);
-
     useEffect(() => {
         const getMovie = async () => {
             const response = await fetch(`https://yts.mx/api/v2/movie_details.json?movie_id=${id}`);
