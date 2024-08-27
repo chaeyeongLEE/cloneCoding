@@ -27,6 +27,23 @@ const Div = styled.div`
     }
 `;
 
+const Section = styled.section`
+    display: flex;
+    flex-direction: row;
+`;
+
+const Article = styled.article`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 1.5rem;
+    margin: 0 1rem;
+    background-color: #ccb6b6;
+    width: 100%;
+    border-radius: 0.6rem;
+    gap: 0.5rem;
+`;
 
 function Detail() {
     const { id } = useParams();
@@ -46,21 +63,25 @@ function Detail() {
 
     return <>
         <Div>
-            <h2>Detail</h2>
+            <h2>Movie's Detail</h2>
             <p>
                 <Link to="/">뒤로가기 🔙</Link>
             </p>
         </Div>
 
         {loading ? <Loading /> :
-            <div>
+            <Section>
                 <img src={movieInfo.movie.medium_cover_image} alt="moviePicture" />
-            <hr />
-          <h2>title : {movieInfo.movie.title}</h2>
-          <span>{movieInfo.movie.genres.map((item)=> `장르: ${item}`)}</span>
-            <br />
-          <span>업로드일자 : {movieInfo.movie.date_uploaded}</span>
-        </div>}
+                <Article>
+                    <h2>{movieInfo.movie.title_long}</h2>
+                    {/*<span>장르: {movieInfo.movie.genres.map((item) => ` ${item} |`)}</span>*/}
+                    <span>Running Time: {movieInfo.movie.runtime} minutes</span>
+                    <span>Genre: {movieInfo.movie.genres.map((item) => item).join(" | ")}</span>
+                    {/*위와 같이 작성하면 제일 마지막 순서에서는 |가 붙지않는다!*/}
+                    <span>Update Date : {movieInfo.movie.date_uploaded}</span>
+                </Article>
+
+            </Section>}
     </>;
 }
 
