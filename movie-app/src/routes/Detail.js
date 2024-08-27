@@ -30,6 +30,15 @@ const Div = styled.div`
 const Section = styled.section`
     display: flex;
     flex-direction: row;
+
+    @media (max-width: 1024px) {
+        flex-direction: column;
+    }
+
+    /* 모바일 */
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
 `;
 
 const Article = styled.article`
@@ -43,6 +52,17 @@ const Article = styled.article`
     width: 100%;
     border-radius: 0.6rem;
     gap: 0.5rem;
+
+    @media (max-width: 1024px) {
+        background-color: #ffffff;
+        margin: 0;
+    }
+
+    /* 모바일 */
+    @media (max-width: 768px) {
+        background-color: #ffffff;
+        margin: 0;
+    }
 `;
 
 function Detail() {

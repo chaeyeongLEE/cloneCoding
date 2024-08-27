@@ -18,6 +18,16 @@ const Div = styled.div`
         grid-template-columns: repeat(2,1fr);
         padding: 0.5rem;
         gap: 1rem;
+
+        /* 아이패드 */
+        @media (max-width: 1024px) {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    
+        /* 모바일 */
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+        }
     
         & img {
             align-items: center;
