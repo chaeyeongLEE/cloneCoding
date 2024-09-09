@@ -5,6 +5,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import { faArrowRightLong } from "@fortawesome/free-solid-svg-icons";
 
 const Main = styled.div`
+        display: flex;
         padding: 1rem;
         border-radius: 0.5rem;
         border: 1px solid #7c7c7c;
@@ -24,13 +25,17 @@ const Main = styled.div`
                     cursor: pointer;
                 }
             }
+            & p {
+                color:pink;
+            }
         }
         & a {
             text-decoration: none;
             color: #7c7c7c;
         }
         & p {
-            height: 120px;
+            height: 90px;
+            background-color: #61dafb;
             overflow-y: auto;
             padding: 0.5rem;
         }
@@ -48,29 +53,36 @@ const Main = styled.div`
             color: #a5a5a5;
         }
     `
+
+const Div = styled.div`
+
+`
 function Movie({ id, coverImg, title, summary, genres }) {
     return (
         <Main>
             <img src={coverImg} alt={title}/>
-            <section>
-                <h2>
-                    <Link to={`/movie/${id}`}>{title}</Link>
-                </h2>
-                <button type="button">
-                    <Link to={`/movie/${id}`}>Detail
-                        <FontAwesomeIcon icon={faArrowRightLong} />
-                    </Link>
-                </button>
-            </section>
-            <h4>장르</h4>
-            <ul>
-                {genres.map((g) => (
-                    <li key={g}>{g}</li>
-                ))}
-            </ul>
-            <h4>줄거리</h4>
-            {summary !== "" && <p>{summary}</p>}
-            {summary === "" && <h3>해당 영화의 줄거리가 존재하지않습니다.</h3>}
+            <Div>
+                <section>
+                    <p>
+                        <Link to={`/movie/${id}`}>{title}</Link>
+                    </p>
+                    <button type="button">
+                        <Link to={`/movie/${id}`}>Detail
+                            <FontAwesomeIcon icon={faArrowRightLong} />
+                        </Link>
+                    </button>
+                </section>
+                <h4>장르</h4>
+                <ul>
+                    {genres.map((g) => (
+                        <li key={g}>{g}</li>
+                    ))}
+                </ul>
+                <h4>줄거리</h4>
+                {summary !== "" && <p>{summary}</p>}
+                {summary === "" && <h3>해당 영화의 줄거리가 존재하지않습니다.</h3>}
+
+            </Div>
 
         </Main>
     );

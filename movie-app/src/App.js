@@ -10,7 +10,7 @@ import {styled} from "styled-components";
 import Footer from "./components/Footer";
 
 const Div = styled.div`
-   margin: 4rem;
+   margin: 2rem 10rem;
 `
 const Headers = styled.header`
     position: fixed;
