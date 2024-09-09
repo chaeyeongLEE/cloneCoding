@@ -1,12 +1,30 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import {styled} from "styled-components";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import { faArrowRightLong } from "@fortawesome/free-solid-svg-icons";
 
-const Div = styled.div`
+const Main = styled.div`
         padding: 1rem;
         border-radius: 0.5rem;
         border: 1px solid #7c7c7c;
-        
+        & section {
+           display: flex;
+            & button {
+                margin: 1.1rem;
+                width: 90px;
+                padding: 0.3rem;
+                height: 30px;
+                border: 1px solid #7c7c7c;
+                border-radius: 0.7rem;
+                opacity: 0.7;
+                &:hover {
+                    opacity: 1;
+                    transition: ease-in 0.25s ;
+                    cursor: pointer;
+                }
+            }
+        }
         & a {
             text-decoration: none;
             color: #7c7c7c;
@@ -31,13 +49,19 @@ const Div = styled.div`
         }
     `
 function Movie({ id, coverImg, title, summary, genres }) {
-
     return (
-        <Div>
+        <Main>
             <img src={coverImg} alt={title}/>
-            <h2>
-                <Link to={`/movie/${id}`}>{title}</Link>
-            </h2>
+            <section>
+                <h2>
+                    <Link to={`/movie/${id}`}>{title}</Link>
+                </h2>
+                <button type="button">
+                    <Link to={`/movie/${id}`}>Detail
+                        <FontAwesomeIcon icon={faArrowRightLong} />
+                    </Link>
+                </button>
+            </section>
             <h4>장르</h4>
             <ul>
                 {genres.map((g) => (
@@ -48,7 +72,7 @@ function Movie({ id, coverImg, title, summary, genres }) {
             {summary !== "" && <p>{summary}</p>}
             {summary === "" && <h3>해당 영화의 줄거리가 존재하지않습니다.</h3>}
 
-        </Div>
+        </Main>
     );
 }
 
