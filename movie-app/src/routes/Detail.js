@@ -2,6 +2,8 @@ import {useEffect, useState} from "react";
 import {Link, useParams} from "react-router-dom";
 import {styled} from "styled-components";
 import Loading from "../components/Loading";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faArrowLeftLong} from "@fortawesome/free-solid-svg-icons";
 
 const Div = styled.div`
     display: flex;
@@ -9,18 +11,18 @@ const Div = styled.div`
     justify-content: space-between;
     color: rosybrown;
     padding: 0 0.5rem;
-    
-    & a {
-        color: #ffffff;
+
+    & button {
         text-decoration: none;
-        font-size: 0.85rem;
-        font-weight: 700;
-        background-color: rosybrown;
-        padding: 0.4rem;
-        border-radius: 0.5rem;
-        
+        margin: 1.1rem;
+        width: 90px;
+        padding: 0.3rem;
+        height: 30px;
+        border: 1px solid #7c7c7c;
+        border-radius: 0.7rem;
+        opacity: 0.7;
         &:hover {
-            opacity: 0.7;
+            opacity: 1;
             transition: ease-in 0.25s ;
             cursor: pointer;
         }
@@ -83,9 +85,9 @@ function Detail() {
     return <>
         <Div>
             <h2>Movie's Detail</h2>
-            <p>
-                <Link to="/">뒤로가기 🔙</Link>
-            </p>
+            <button type="button">
+                <Link to="/">Back <FontAwesomeIcon icon={faArrowLeftLong} /></Link>
+            </button>
         </Div>
 
         {loading ? <Loading /> :

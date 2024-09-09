@@ -55,7 +55,7 @@ function Home() {
                     <Loading />
                 ) : (
                     <>
-                        <Span>영화제목 클릭 시 상세정보 페이지로 이동합니다.</Span>
+                        {/*<Span>영화제목 클릭 시 상세정보 페이지로 이동합니다.</Span>*/}
                         <Div>
                             {movies.map((movie) => (
                                 <Movie
